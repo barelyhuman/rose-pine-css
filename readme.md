@@ -20,8 +20,8 @@ It's a css package, there's no other imports
 
 - or you can install the package and import the css (your bundler needs to support css imports)
 
-```
-import "@barelyhuman/rose-pine-css/rose-pine.css"
+```js
+import '@barelyhuman/rose-pine-css/rose-pine.css'
 ```
 
 ## Credits
