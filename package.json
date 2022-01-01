@@ -8,11 +8,12 @@
   "scripts": {
     "prebuild": "npm run clean; mkdir -p dist",
     "build": "node generate.mjs",
-    "postbuild": "shx cp package.json readme.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.prettier=undefined; this.jest=undefined; this.main=undefined; this['lint-staged']=undefined;\"",
+    "postbuild": "shx cp package.json readme.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.prettier=undefined; this.jest=undefined; this.bundlesize=undefined; this.main=undefined; this['lint-staged']=undefined;\"",
     "clean": "rm -rf dist",
-    "test": "echo 'done'",
     "dev": "nodemon generate.mjs",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "size": "GITHUB_TOKEN='' bundlesize",
+    "test": "echo 'done'"
   },
   "prettier": {
     "bracketSpacing": false,
@@ -23,9 +24,22 @@
   },
   "devDependencies": {
     "@rose-pine/palette": "^1.1.0",
+    "bundlesize": "^0.18.1",
+    "csso": "^5.0.2",
     "json": "^11.0.0",
     "param-case": "^3.0.4",
     "prettier": "^2.5.1",
     "shx": "^0.3.3"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/rose-pine*.css",
+      "maxSize": "500 B"
+    },
+    {
+      "path": "./dist/rose-pine*.css",
+      "maxSize": "500 B",
+      "compression": "brotli"
+    }
+  ]
 }
