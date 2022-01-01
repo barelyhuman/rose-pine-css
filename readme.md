@@ -34,3 +34,10 @@ For the original project by
 ## License
 
 [MIT](/LICENSE)
+
+## Dev notes
+
+1. Node version >= 12 (needs ESM)
+2. The releases are made from the `dist` folder. So, `cd dist; npm pub`
+3. Do not use `np` as the version change is to be done on the root folder and then `npm run build` to create a release folder
+4. Check the change using unpkg and a react boilerplate that has css loaders enabled
