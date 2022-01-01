@@ -1,0 +1,31 @@
+{
+  "name": "@barelyhuman/rose-pine-css",
+  "version": "0.0.0",
+  "repository": "git@github.com:barelyhuman/rose-pine-css",
+  "license": "MIT",
+  "author": "Reaper <ahoy@barelyhuman.dev>",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "npm run clean; mkdir -p dist",
+    "build": "node generate.mjs",
+    "postbuild": "shx cp package.json readme.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.prettier=undefined; this.jest=undefined; this.main=undefined; this['lint-staged']=undefined;\"",
+    "clean": "rm -rf dist",
+    "test": "echo 'done'",
+    "dev": "nodemon generate.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "devDependencies": {
+    "@rose-pine/palette": "^1.1.0",
+    "json": "^11.0.0",
+    "param-case": "^3.0.4",
+    "prettier": "^2.5.1",
+    "shx": "^0.3.3"
+  }
+}
