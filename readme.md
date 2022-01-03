@@ -14,8 +14,10 @@ It's a css package, there's no other imports
 
 - You can use a npm cdn to get the css file
 
-```
+```css
 <link rel="stylesheet" href="https://unpkg.com/@barelyhuman/rose-pine-css@0.0.1/rose-pine.css">
+/* for v2 / still not released by rose-pine/palette */
+<link rel="stylesheet" href="https://unpkg.com/@barelyhuman/rose-pine-css@next/rose-pine.css">
 ```
 
 - or you can install the package and import the css (your bundler needs to support css imports)
