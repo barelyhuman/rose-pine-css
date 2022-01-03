@@ -1,8 +1,8 @@
 import {variants} from '@rose-pine/palette'
 import prettier from 'prettier'
 import fs from 'fs'
-import {paramCase} from 'param-case'
 import {minify} from 'csso'
+import {colorExtractor} from './extractor.mjs'
 
 const TEMPLATE_KEY = '{{template}}'
 const STYLE_VARIABLE_PREFIX = 'rose-'
@@ -37,26 +37,12 @@ const purgeTemplate = (template) => {
 }
 
 function main() {
-  const _variants = Object.keys(variants)
+  const _variants = colorExtractor(variants)
   _variants.forEach((variant) => {
-    const path = `${STYLE_VARIABLE_PREFIX}${variant}-`
-    Object.keys(variants[variant]).forEach((colorRole) => {
-      const colorRoleText = paramCase(colorRole)
-      const localPath = `${path}${colorRoleText}`
-      const colorMap = variants[variant][colorRole]
-      Object.keys(colorMap).forEach((colorVal) => {
-        let colorPath = `${localPath}`
-        if (colorVal === 'alpha') {
-          return
-        }
-        if (colorVal !== 'hex') {
-          colorPath += `-${colorVal}`
-        }
-        const cssVarName = pathToCSSVariable(colorPath)
-        const cssVarString = varToStyleString(cssVarName, colorMap[colorVal])
-        styleSheet = appendToStylesheet(cssVarString)
-      })
-    })
+    const colorPath = `${STYLE_VARIABLE_PREFIX}${variant.path}`
+    const cssVarName = pathToCSSVariable(colorPath)
+    const cssVarString = varToStyleString(cssVarName, variant.color)
+    styleSheet = appendToStylesheet(cssVarString)
   })
 
   styleSheet = purgeTemplate(styleSheet)

@@ -7,10 +7,10 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "npm run clean; mkdir -p dist",
-    "build": "node generate.mjs",
+    "build": "node src/generate.mjs",
     "postbuild": "shx cp package.json readme.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.prettier=undefined; this.jest=undefined; this.bundlesize=undefined; this.main=undefined; this['lint-staged']=undefined;\"",
     "clean": "rm -rf dist",
-    "dev": "nodemon generate.mjs",
+    "dev": "nodemon src/generate.mjs",
     "prepublishOnly": "npm run build",
     "size": "sizesnap",
     "test": "echo 'done'"
