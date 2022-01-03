@@ -1,4 +1,4 @@
-import {colorsByVariant} from '@rose-pine/palette'
+import {variants} from '@rose-pine/palette'
 import prettier from 'prettier'
 import fs from 'fs'
 import {paramCase} from 'param-case'
@@ -37,16 +37,25 @@ const purgeTemplate = (template) => {
 }
 
 function main() {
-  const variants = Object.keys(colorsByVariant)
-  variants.forEach((variant) => {
-    let path = `${STYLE_VARIABLE_PREFIX}${variant}-`
-    Object.keys(colorsByVariant[variant]).forEach((colorRole) => {
+  const _variants = Object.keys(variants)
+  _variants.forEach((variant) => {
+    const path = `${STYLE_VARIABLE_PREFIX}${variant}-`
+    Object.keys(variants[variant]).forEach((colorRole) => {
       const colorRoleText = paramCase(colorRole)
       const localPath = `${path}${colorRoleText}`
-      const color = colorsByVariant[variant][colorRole]
-      const cssVarName = pathToCSSVariable(localPath)
-      const cssVarString = varToStyleString(cssVarName, color)
-      styleSheet = appendToStylesheet(cssVarString)
+      const colorMap = variants[variant][colorRole]
+      Object.keys(colorMap).forEach((colorVal) => {
+        let colorPath = `${localPath}`
+        if (colorVal === 'alpha') {
+          return
+        }
+        if (colorVal !== 'hex') {
+          colorPath += `-${colorVal}`
+        }
+        const cssVarName = pathToCSSVariable(colorPath)
+        const cssVarString = varToStyleString(cssVarName, colorMap[colorVal])
+        styleSheet = appendToStylesheet(cssVarString)
+      })
     })
   })
 

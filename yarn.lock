@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@rose-pine/palette@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@rose-pine/palette/-/palette-1.1.0.tgz#a4ac964e2f1c2bd50730d1ea8ce7af162dc7f006"
-  integrity sha512-YVBMSQSipVxpzPsHGsSo5VSBHGi22O1k0FUChLHA/cGLseqn8xYJBCDRxFyxn51H47xkcdUuX/b5egcyKNkxDQ==
+"@rose-pine/palette@^2.0.0-6":
+  version "2.0.0-6"
+  resolved "https://registry.yarnpkg.com/@rose-pine/palette/-/palette-2.0.0-6.tgz#07a2cbc3f115367e11a10a9f304300986761ccc0"
+  integrity sha512-eI0eGecc7KeXEKkXSZzQZpf74HRUKWX8O3L7iP9vDVQ5xZVJQzBA+DBby4Jqsrfv0NcI+ZUA1GpOUZZFIzoLTw==
 
 ansi-regex@^2.0.0:
   version "2.1.1"
