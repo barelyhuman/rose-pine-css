@@ -30,7 +30,7 @@
     "param-case": "^3.0.4",
     "prettier": "^2.5.1",
     "shx": "^0.3.3",
-    "sizesnap": "^0.0.2"
+    "sizesnap": "^0.0.3"
   },
   "sizesnap": {
     "files": [

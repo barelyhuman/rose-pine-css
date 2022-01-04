@@ -1,10 +1,10 @@
 {
-  "./dist/rose-pine.css": {
+  "dist/rose-pine.css": {
     "size": "6.99KB",
     "brotli": "1.06KB",
     "gzip": "1.37KB"
   },
-  "./dist/rose-pine.min.css": {
+  "dist/rose-pine.min.css": {
     "size": "6.35KB",
     "brotli": "1.05KB",
     "gzip": "1.35KB"
