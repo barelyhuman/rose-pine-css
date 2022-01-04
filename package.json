@@ -12,7 +12,7 @@
     "clean": "rm -rf dist",
     "dev": "nodemon generate.mjs",
     "prepublishOnly": "npm run build",
-    "size": "GITHUB_TOKEN='' bundlesize",
+    "size": "sizesnap",
     "test": "echo 'done'"
   },
   "prettier": {
@@ -29,17 +29,12 @@
     "json": "^11.0.0",
     "param-case": "^3.0.4",
     "prettier": "^2.5.1",
-    "shx": "^0.3.3"
+    "shx": "^0.3.3",
+    "sizesnap": "^0.0.1"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/rose-pine*.css",
-      "maxSize": "500 B"
-    },
-    {
-      "path": "./dist/rose-pine*.css",
-      "maxSize": "500 B",
-      "compression": "brotli"
-    }
-  ]
+  "sizesnap": {
+    "files": [
+      "./dist/rose-pine*.css"
+    ]
+  }
 }
