@@ -2,6 +2,8 @@
 
 > Soho vibes from [rose-pine](https://github.com/rose-pine/rose-pine-theme), as css variables
 
+# THE CONTENTS ARE NOW A PART OF THE OFFICIAL REPOSITORY [rose-pine/palette](https://github.com/rose-pine/palette) , arching this repository.
+
 This is not from the offical devs which I wish find time to get this done in the official package, but till then, I made one for my own use
 
 ## Why?

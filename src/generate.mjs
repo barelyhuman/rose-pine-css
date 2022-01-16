@@ -1,8 +1,9 @@
 import {variants} from '@rose-pine/palette'
 import prettier from 'prettier'
-import fs from 'fs'
+import {writeFileSync} from 'fs'
 import {minify} from 'csso'
 import {colorExtractor} from './extractor.mjs'
+import {generate} from 'sizesnap'
 
 const TEMPLATE_KEY = '{{template}}'
 const STYLE_VARIABLE_PREFIX = 'rose-'
@@ -48,8 +49,9 @@ function main() {
   styleSheet = purgeTemplate(styleSheet)
   const cleanedStyles = prettier.format(styleSheet, {parser: 'css'})
 
-  fs.writeFileSync('dist/rose-pine.css', cleanedStyles)
-  fs.writeFileSync('dist/rose-pine.min.css', minify(cleanedStyles).css)
+  writeFileSync('dist/rose-pine.css', cleanedStyles)
+  writeFileSync('dist/rose-pine.min.css', minify(cleanedStyles).css)
+  generate({log: false, table: true, write: true})
 }
 
 main()

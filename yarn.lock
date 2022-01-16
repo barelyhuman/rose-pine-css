@@ -749,10 +749,10 @@ simple-get@^3.0.3:
     once "^1.3.1"
     simple-concat "^1.0.0"
 
-sizesnap@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/sizesnap/-/sizesnap-0.0.3.tgz#555bc985c5e95886cf3b026ad9152cc7cea6ac97"
-  integrity sha512-W6Uyju5F+OT0aDFXVBMgGxf9oBzT6CAfs/T2MlXDaROCqkwUFwnh7VxizT3sxhP540WHHapGSL7lQ5NX3g6kLw==
+sizesnap@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/sizesnap/-/sizesnap-0.1.0.tgz#885a31e1327b27142988d648b918b9a44a93624f"
+  integrity sha512-wB3zZ71mjyxozAYDqcFI+y6Qr+UYDzSJc0b/zUyOPoQ1eppMK3taCA5oqiG86weFGKPbxEXiHLrZlhrX5MB6gw==
 
 source-map-js@^1.0.1:
   version "1.0.1"
